@@ -1,13 +1,23 @@
+const { all, one } = require('../models/products.model')
+
 const controller = {
     index: (req, res) => {
+        let products = all()
         if (req.params.categoria) {
-            return res.send('Productos de la categoria ' + req.params.categoria)
+            products = products.filter(e => e.category == req.params.categoria)
+            return res.render('list', { products })
         }
-        return res.send('Todos los productos')
+        return res.render('list', { products })
     },
     show: (req, res) => {
-        return res.send('Detalle del producto ' + req.params.producto)
+        let product = one(req.params.producto)
+        if (product) {
+            return res.render('detail', { product })
+        }
+
+        return res.render('detail', { product: null })
     }
+
 };
 
 

@@ -1,0 +1,19 @@
+[{
+        "name": "One",
+        "price": 1000,
+        "category": "cat",
+        "sku": 1
+    },
+    {
+        "name": "Two",
+        "price": 2000,
+        "category": "cat",
+        "sku": 2
+    },
+    {
+        "name": "Three",
+        "price": 3000,
+        "category": "dog",
+        "sku": 3
+    }
+]

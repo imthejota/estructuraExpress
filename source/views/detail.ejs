@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')  %>
+        <link rel="stylesheet" href="/css/detail.css">
+</head>
+
+<body>
+    <% if (product) { %>
+        <article>
+            <h2>
+                <%= product.name %> <span>$<%= product.price %></span></h2>
+            <nav>
+                <a href="/productos/<%= product.category %>">
+                    <%= product.category %>
+                </a>
+            </nav>
+        </article>
+        <% } else { %>
+            <h2>
+                No se encontró un producto <a href="/productos">Volver</a>
+            </h2>
+            <% } %>
+
+</body>
+
+</html>
