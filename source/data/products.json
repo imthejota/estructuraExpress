@@ -1,22 +1,22 @@
 [{
-        "name": "One",
+        "name": "Cato",
         "price": 1000,
         "category": "cat",
         "sku": 1
     },
     {
-        "name": "Two",
+        "name": "Le cat",
         "price": 2000,
         "category": "cat",
         "sku": 2
     },
     {
-        "name": "Three",
+        "name": "Doggy",
         "price": 3000,
         "category": "dog",
         "sku": 3
     }, {
-        "name": "Four",
+        "name": "Snoop dog",
         "price": 3500,
         "category": "dog",
         "sku": 4

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head.ejs')  %>
+</head>
+
+<body>
+    <form action="/productos/guardar" method="post">
+        <fieldset>
+            <legend>Nombre del producto</legend>
+            <input type="text" name="name" id="name">
+        </fieldset>
+        <fieldset>
+            <legend>Precio</legend>
+            <input type="text" name="price" id="price">
+        </fieldset>
+        <fieldset>
+            <legend>Categoría</legend>
+            <input type="radio" name="category" id="category-cat" value="cat">
+            <label for="category-cat">Cat</label>
+            <input type="radio" name="category" id="category-dog" value="dog">
+            <label for="category-dog">Dog</label>
+            <input type="radio" name="category" id="category-fish" value="fish">
+            <label for="category-fish">Fish</label>
+        </fieldset>
+        <button type="submit">Guardar</button>
+
+    </form>
+</body>
+
+</html>

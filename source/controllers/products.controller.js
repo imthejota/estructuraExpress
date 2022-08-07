@@ -1,4 +1,4 @@
-const { all, one } = require('../models/products.model')
+const { all, one, generate, write } = require('../models/products.model')
 
 const controller = {
     index: (req, res) => {
@@ -14,11 +14,20 @@ const controller = {
         if (product) {
             return res.render('detail', { product })
         }
-
         return res.render('detail', { product: null })
+    },
+    create: (req, res) => {
+        return res.render('create')
+    },
+    save: (req, res) => {
+        let datosDelForm = req.body;
+        let nuevo = generate(datosDelForm);
+        let todos = all();
+        todos.push(nuevo);
+        write(todos)
+        return res.redirect('/productos/');
     }
 
-};
-
+}
 
 module.exports = controller;

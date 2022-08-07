@@ -10,8 +10,22 @@ let model = {
     one: function(sku) {
         let all = model.all();
         return all.find(e => e.sku == sku)
-    }
+    },
+    generate: function(data) {
+        let all = model.all();
+        let last = all.pop();
+        let product = {}
+        product.name = data.name;
+        product.price = parseInt(data.price);
+        product.category = data.category;
+        product.sku = last.sku + 1;
+        return product;
+    },
+    write: function(data) {
+        let file = resolve(__dirname, '../data', 'products.json');
+        let json = JSON.stringify(data);
+        return fs.writeFileSync(file, json)
+    },
 }
-
 
 module.exports = model;
