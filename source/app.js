@@ -4,7 +4,7 @@ const express = require('express');
 const { join } = require('path');
 // Requiero Override
 const method = require('method-override')
-    // Declaro ejecución de Express desde la variable server
+// Declaro ejecución de Express desde la variable server
 const server = express();
 // Declaro config como requerimiento del módulo interno server
 const config = require('./modules/server');
@@ -12,11 +12,16 @@ const config = require('./modules/server');
 server.listen(config.port, config.start());
 
 
-
+// Middlewares siempre previo a rutas ya que terminan afectándolas
 // Requiero Statics del módulo interno
 const statics = require('./modules/static');
+
 // Ejecución del middleware statics
 server.use(statics(join(__dirname, "../public")));
+
+// Url Encoded para uso de req.body
+server.use(express.urlencoded({ extended: true }))
+/* server.use(express.json) */
 
 // Ejecución del middleware override
 server.use(method('m'))
@@ -29,6 +34,4 @@ server.use(productsRoutes);
 server.set('views', join(__dirname, './views'))
 server.set('view engine', 'ejs')
 
-// Url Encoded para uso de req.body
-server.use(express.urlencoded({ extended: true }))
-/* server.use(express.json) */
+
