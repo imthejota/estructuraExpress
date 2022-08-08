@@ -11,6 +11,8 @@ const config = require('./modules/server');
 // Variable server (ejecución de Express) escucha el método port y start de la variable config
 server.listen(config.port, config.start());
 
+
+
 // Requiero Statics del módulo interno
 const statics = require('./modules/static');
 // Ejecución del middleware statics
@@ -29,3 +31,4 @@ server.set('view engine', 'ejs')
 
 // Url Encoded para uso de req.body
 server.use(express.urlencoded({ extended: true }))
+/* server.use(express.json) */

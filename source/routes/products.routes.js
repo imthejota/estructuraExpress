@@ -9,6 +9,7 @@ const controller = require('../controllers/products.controller');
 // Defino de acuerdo al verbo http correspondiente la ruta junto el controlador correspondiente
 route.get('/productos/nuevo', controller.create);
 route.post('/productos/guardar', controller.save);
+route.get('/productos/editar/:producto', controller.edit);
 route.get('/productos/:categoria?', controller.index);
 route.get('/productos/detalle/:producto', controller.show);
 

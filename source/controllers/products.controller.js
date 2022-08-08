@@ -31,14 +31,30 @@ const controller = {
     },
     // Método save
     save: (req, res) => {
-        let datosDelForm = req.body;
-        let nuevo = generate(datosDelForm);
+        let nuevo = generate(req.body)
         let todos = all();
         todos.push(nuevo);
         write(todos)
         return res.redirect('/productos/');
-    }
+    },
+    edit: (req, res) => {
+        let product = one(req.params.producto)
+        return res.render('edit', { product })
 
+    },
+    update: (req, res) => {
+        let todos = all();
+        let actualizado = todos.map(elemento => {
+            if (elemento.sku == req.body.sku) {
+                elemento.name = req.body.name;
+                elemento.price = parseInt(req.body.price);
+                elemento.category = req.body.category;
+            }
+            return elemento;
+        })
+        write(actualizados)
+        return res.redirect('/productos/');
+    }
 }
 
 // Exporto el módulo de controladores

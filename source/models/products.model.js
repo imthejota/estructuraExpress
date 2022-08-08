@@ -13,12 +13,12 @@ let model = {
     },
     generate: function(data) {
         let all = model.all();
-        let last = all.pop();
+        let last = all.pop()
         let product = {}
-        product.name = data.name;
-        product.price = parseInt(data.price);
-        product.category = data.category;
-        product.sku = last.sku + 1;
+        product.name = data.name
+        product.price = parseInt(data.price)
+        product.category = data.category
+        product.sku = last.sku + 1
         return product;
     },
     write: function(data) {
