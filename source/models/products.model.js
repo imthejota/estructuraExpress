@@ -23,7 +23,7 @@ let model = {
     },
     write: function(data) {
         let file = resolve(__dirname, '../data', 'products.json');
-        let json = JSON.stringify(data);
+        let json = JSON.stringify(data, null, 2);
         return fs.writeFileSync(file, json)
     },
 }

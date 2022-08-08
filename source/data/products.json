@@ -1,1 +1,38 @@
-[{"name":"Cato","price":1000,"category":"cat","sku":1},{"name":"Le cat","price":2000,"category":"cat","sku":2},{"name":"Doggy","price":3000,"category":"dog","sku":3},{"name":"Snoop dog","price":3500,"category":"dog","sku":4},{"name":"Prueba","price":2,"category":"dog","sku":5}]
+[
+  {
+    "name": "Cato",
+    "price": 1000,
+    "category": "cat",
+    "sku": 1
+  },
+  {
+    "name": "Le cat",
+    "price": 2000,
+    "category": "cat",
+    "sku": 2
+  },
+  {
+    "name": "Doggy",
+    "price": 3000,
+    "category": "dog",
+    "sku": 3
+  },
+  {
+    "name": "Snoop dog",
+    "price": 3500,
+    "category": "dog",
+    "sku": 4
+  },
+  {
+    "name": "Prueba",
+    "price": 2,
+    "category": "dog",
+    "sku": 5
+  },
+  {
+    "name": "Cat Dog",
+    "price": 25000,
+    "category": "dog",
+    "sku": 6
+  }
+]
