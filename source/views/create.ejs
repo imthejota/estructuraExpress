@@ -9,7 +9,7 @@
     <nav>
         <a href="/productos/">Volver a lista</a>
     </nav>
-    <form action="/productos/guardar" method="post">
+    <form action="/productos/guardar" method="post" enctype="multipart/form-data"> <!-- sin el enctype no toma imagenes el multer -->
         <fieldset>
             <legend>Nombre del producto</legend>
             <input type="text" name="name" id="name">
@@ -26,6 +26,11 @@
             <label for="category-dog">Dog</label>
             <input type="radio" name="category" id="category-fish" value="fish">
             <label for="category-fish">Fish</label>
+        </fieldset>
+        <fieldset>
+            <legend>Archivos</legend>
+            <input type="file" name="imagen" id="name">
+            <label for="imagen">Subir imagen</label>
         </fieldset>
         <button type="submit">Guardar</button>
 

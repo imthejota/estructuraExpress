@@ -12,7 +12,7 @@ const config = require('./modules/server');
 server.listen(config.port, config.start());
 
 
-// Middlewares siempre previo a rutas ya que terminan afectándolas
+// Middlewares siempre previo a rutas ya que terminan afectándolas -> proceso en el medio
 // Requiero Statics del módulo interno
 const statics = require('./modules/static');
 

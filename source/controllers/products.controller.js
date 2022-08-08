@@ -31,6 +31,9 @@ const controller = {
     },
     // Método save
     save: (req, res) => {
+        if (req.files && req.files.length > 0){
+            return res.send({archivos: req.files})
+        }
         let nuevo = generate(req.body)
         let todos = all();
         todos.push(nuevo);
@@ -43,6 +46,9 @@ const controller = {
 
     },
     update: (req, res) => {
+        if (req.files && req.files.length > 0){
+            return res.send({archivos: req.files})
+        }
         let todos = all();
         let actualizado = todos.map(elemento => {
             if (elemento.sku == req.body.sku) {
@@ -52,7 +58,7 @@ const controller = {
             }
             return elemento;
         })
-        write(actualizados)
+        write(actualizado)
         return res.redirect('/productos/');
     }
 }
