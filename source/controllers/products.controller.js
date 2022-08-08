@@ -47,7 +47,9 @@ const controller = {
     },
     update: (req, res) => {
         if (req.files && req.files.length > 0){
-            return res.send({archivos: req.files})
+            req.body.image = req.files[0].fileName
+        } else {
+            req.body.image = 'default.png'
         }
         let todos = all();
         let actualizado = todos.map(elemento => {
