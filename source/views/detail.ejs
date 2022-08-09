@@ -9,6 +9,7 @@
 <body>
     <% if (product) { %>
         <article>
+            <picture><img src="/products/<%= product.image %> " alt=""></picture>
             <h2>
                 <%= product.name %> <span>$<%= product.price %></span></h2>
             <nav>
@@ -17,6 +18,10 @@
                 </a>
                 <a href="/productos/editar/<%= product.sku %>">Editar</a>
             </nav>
+            <form action="/productos/borrar?m=DELETE" method="post">
+                <input type="hidden" name="sku" value="<%= product.sku %> ">
+                <button type="submit">Borrar producto</button>
+            </form>
         </article>
         <% } else { %>
             <h2>

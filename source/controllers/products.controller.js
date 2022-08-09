@@ -1,6 +1,7 @@
 // Requiero los métodos que necesito desde el modelo de los productos 
 const { all, one, generate, write } = require('../models/products.model')
-
+const {unlinkSync} = require('fs');
+const {resolve} = require('path');
 // Declaro la constante controlador
 const controller = {
     // Método index
@@ -32,7 +33,9 @@ const controller = {
     // Método save
     save: (req, res) => {
         if (req.files && req.files.length > 0){
-            return res.send({archivos: req.files})
+            req.body.image = req.files[0].filename
+        } else {
+            req.body.image = 'default.png'
         }
         let nuevo = generate(req.body)
         let todos = all();
@@ -46,23 +49,32 @@ const controller = {
 
     },
     update: (req, res) => {
-        if (req.files && req.files.length > 0){
-            req.body.image = req.files[0].fileName
-        } else {
-            req.body.image = 'default.png'
-        }
+        
         let todos = all();
         let actualizado = todos.map(elemento => {
             if (elemento.sku == req.body.sku) {
                 elemento.name = req.body.name;
                 elemento.price = parseInt(req.body.price);
                 elemento.category = req.body.category;
+                elemento.image = req.files && req.files.length > 0 ? req.files[0].filename : elemento.image;
             }
             return elemento;
         })
         write(actualizado)
         return res.redirect('/productos/');
+    },
+    remove: (req, res) => {
+        let product = one(req.params.sku);
+        if (product.image != 'default.png'){
+            let file = resolve(__dirname, '..', '..', 'public', 'products', product.image)
+            unlinkSync(file)
+        }
+        let todos = all();
+        let noEliminados = todos.filter(elemento => elemento.sku != req.body.sku);
+        write(noEliminados);
+        return res.redirect('/productos/');
     }
+
 }
 
 // Exporto el módulo de controladores

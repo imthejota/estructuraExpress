@@ -3,36 +3,35 @@
     "name": "Cato",
     "price": 1000,
     "category": "cat",
-    "sku": 1
+    "sku": 1,
+    "image": "default.png"
   },
   {
     "name": "Le cat",
     "price": 2000,
     "category": "cat",
-    "sku": 2
+    "sku": 2,
+    "image": "default.png"
   },
   {
     "name": "Doggy",
     "price": 3000,
     "category": "dog",
-    "sku": 3
+    "sku": 3,
+    "image": "default.png"
   },
   {
     "name": "Snoop dog",
     "price": 3500,
     "category": "dog",
-    "sku": 4
+    "sku": 4,
+    "image": "default.png"
   },
   {
     "name": "Prueba",
     "price": 2,
     "category": "dog",
-    "sku": 5
-  },
-  {
-    "name": "Cat Dog",
-    "price": 25000,
-    "category": "dog",
-    "sku": 6
+    "sku": 5,
+    "image": "default.png"
   }
 ]

@@ -18,7 +18,7 @@ const destination = (req, file, cb) => {
     return cb(null, folder)
 }
 // Nombre del archivo que va a ser guardado
-const fileName = (req, file, cb) => {
+const filename = (req, file, cb) => {
     let unique = Date.now() + '-' + Math.round(Math.random() * 1E9)
     // fieldname = name del input / extname extrae la extensión del archivo original
     let name = file.fieldname + '-' + unique + extname(file.originalname) ;
@@ -28,7 +28,7 @@ const fileName = (req, file, cb) => {
 // Requiero multer
 const multer = require('multer');
 // Al multer le paso un objeto que tiene el multer.diskStorage y dentro del mismo paso otro objeto con las 2 constantes creadas antes
-const upload = multer({storage: multer.diskStorage({destination, fileName})})
+const upload = multer({storage: multer.diskStorage({destination, filename})})
 
 // single('image') 1 sólo archivo -requiere el name que le haya puesto al input-, any todos los que quiera -no necesita nada-, req.file
 // any() -> req.files .. al poder traer muchos es un array
@@ -40,6 +40,7 @@ route.get('/productos/editar/:producto', controller.edit);
 route.put('/productos/actualizar', upload.any(), controller.update);
 route.get('/productos/:categoria?', controller.index);
 route.get('/productos/detalle/:producto', controller.show);
+route.delete('/productos/borrar', controller.remove)
 
 
 
