@@ -20,14 +20,19 @@ const controller = {
     },
     // Método show
     show: (req, res) => {
+        // Declaro product tomando módulo one y como parámetro de esa funcion los datos del producto que requiero
         let product = one(req.params.producto)
+        // Si el producto (con lo que viene solicitado por usuario existe..)
         if (product) {
+            // Devuelve la vista renderizada de detail con el objeto del producto correspondiente
             return res.render('detail', { product })
         }
+        // Si el prod no existe, muestra la vista del detail pero con un null
         return res.render('detail', { product: null })
     },
     // Método create
     create: (req, res) => {
+        // Renderiza la vista create
         return res.render('create')
     },
     // Método save
