@@ -18,7 +18,7 @@ let model = {
         product.name = data.name
         product.price = parseInt(data.price)
         product.category = data.category
-        product.sku = last.sku + 1
+        product.sku = !last ? 1 : last.sku + 1;
         product.image = data.image
         return product;
     },
